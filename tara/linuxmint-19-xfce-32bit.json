@@ -86,7 +86,7 @@
 
     "_comment": "Build with `packer build linuxmint-19-xfce-32bit.json`",
   "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-  "box_tag": "d78ui98/linuxmint-19-xfce-32bit",
+  "box_tag": "ltsp/linuxmint-19-xfce-32bit",
   "cpus": "1",
   "disk_size": "20000",
   "iso_checksum_type": "sha256",
@@ -95,8 +95,8 @@
   "memory": "1024",
   "preseed": "mint-19.seed",
   "vagrantfile_template": "tpl/linuxmint-19-xfce-32bit.tpl",
-  "version": "1.0.3",
-  "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.12",
+  "version": "1.0",
+  "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
   "vm_name": "linuxmint-19-xfce-32bit"
   }
 }
