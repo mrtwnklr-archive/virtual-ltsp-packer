@@ -94,7 +94,7 @@
   "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-mate-64bit.iso",
   "memory": "1024",
   "preseed": "mint-19.seed",
-  "vagrantfile_template": "tpl/linuxmint-19-mate-64bit.tpl",
+  "vagrantfile_template": "vagrantfile.tpl",
   "version": "1.0",
   "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
   "vm_name": "linuxmint-19-mate-64bit"
