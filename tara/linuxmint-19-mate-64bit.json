@@ -85,18 +85,18 @@
     "ssh_username": "vagrant",
 
     "_comment": "Build with `packer build linuxmint-19-mate-64bit.json`",
-  "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-  "box_tag": "ltsp/linuxmint-19-mate-64bit",
-  "cpus": "1",
-  "disk_size": "20000",
-  "iso_checksum_type": "sha256",
-  "iso_checksum": "a5f9893d2960eaea1a4d35a86c1d2a627a2a8ee3e578f01514ab75c8ef323a8d",
-  "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-mate-64bit.iso",
-  "memory": "1024",
-  "preseed": "mint-19.seed",
-  "vagrantfile_template": "vagrantfile.tpl",
-  "version": "1.0",
-  "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
-  "vm_name": "linuxmint-19-mate-64bit"
+    "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+    "box_tag": "ltsp/linuxmint-19-mate-64bit",
+    "cpus": "1",
+    "disk_size": "20000",
+    "iso_checksum_type": "sha256",
+    "iso_checksum": "a5f9893d2960eaea1a4d35a86c1d2a627a2a8ee3e578f01514ab75c8ef323a8d",
+    "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-mate-64bit.iso",
+    "memory": "1024",
+    "preseed": "mint-19.seed",
+    "vagrantfile_template": "vagrantfile.tpl",
+    "version": "1.0",
+    "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
+    "vm_name": "linuxmint-19-mate-64bit"
   }
 }

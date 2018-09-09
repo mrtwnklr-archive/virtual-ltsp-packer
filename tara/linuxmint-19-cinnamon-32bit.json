@@ -85,18 +85,18 @@
     "ssh_username": "vagrant",
 
     "_comment": "Build with `packer build linuxmint-19-cinnamon-32bit.json`",
-  "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-  "box_tag": "ltsp/linuxmint-19-cinnamon-32bit",
-  "cpus": "1",
-  "disk_size": "20000",
-  "iso_checksum_type": "sha256",
-  "iso_checksum": "2233bd95ca6b0c605d02b76dcc678c63253f9f14f5c1539f82d412e0dce8f981",
-  "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-cinnamon-32bit.iso",
-  "memory": "1024",
-  "preseed": "mint-19.seed",
-  "vagrantfile_template": "vagrantfile.tpl",
-  "version": "1.0",
-  "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
-  "vm_name": "linuxmint-19-cinnamon-32bit"
+    "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+    "box_tag": "ltsp/linuxmint-19-cinnamon-32bit",
+    "cpus": "1",
+    "disk_size": "20000",
+    "iso_checksum_type": "sha256",
+    "iso_checksum": "2233bd95ca6b0c605d02b76dcc678c63253f9f14f5c1539f82d412e0dce8f981",
+    "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-cinnamon-32bit.iso",
+    "memory": "1024",
+    "preseed": "mint-19.seed",
+    "vagrantfile_template": "vagrantfile.tpl",
+    "version": "1.0",
+    "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
+    "vm_name": "linuxmint-19-cinnamon-32bit"
   }
 }
