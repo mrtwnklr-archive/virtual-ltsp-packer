@@ -1,20 +1,20 @@
 {
   "builders": [{
-    "vm_name": "{{user `vm_name`}}",
+    "vm_name": "linuxmint-19-mate-64bit",
     "type": "virtualbox-iso",
     "guest_os_type": "Ubuntu_64",
     "http_directory": "http",
-    "iso_url": "{{ user `iso_url` }}",
-    "iso_checksum": "{{ user `iso_checksum` }}",
-    "iso_checksum_type": "{{ user `iso_checksum_type` }}",
-    "ssh_password": "{{ user `ssh_password` }}",
-    "ssh_username": "{{ user `ssh_username` }}",
+    "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-mate-64bit.iso",
+    "iso_checksum": "a5f9893d2960eaea1a4d35a86c1d2a627a2a8ee3e578f01514ab75c8ef323a8d",
+    "iso_checksum_type": "sha256",
+    "ssh_password": "vagrant",
+    "ssh_username": "vagrant",
     "ssh_wait_timeout": "10000s",
-    "headless": "{{ user `headless` }}",
+    "headless": "false",
     "boot_command": [
       "{{ user `boot_command_prefix` }}",
       "/casper/vmlinuz ",
-      "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/{{ user `preseed` }} ",
+      "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/mint-19.seed ",
       "boot=casper ",
       "initrd=/casper/initrd.lz ",
       "debug-ubiquity ",
@@ -24,15 +24,15 @@
       "noprompt ",
       "-- <enter>"
     ],
-    "shutdown_command": "echo '{{ user `ssh_password` }}'|sudo -S shutdown -P now",
+    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
     "post_shutdown_delay": "1m",
-    "disk_size": "{{ user `disk_size` }}",
+    "disk_size": "20000",
     "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
     "virtualbox_version_file": ".vbox_version",
     "hard_drive_interface": "sata",
     "vboxmanage": [
-      [ "modifyvm", "{{.Name}}", "--memory", "{{ user `memory` }}" ],
-      [ "modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}" ]
+      [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
+      [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
     ]
   }],
   "post-processors": [
@@ -40,15 +40,15 @@
       {
         "compression_level": "6",
         "keep_input_artifact": false,
-        "output": "box/{{.Provider}}/{{user `vm_name`}}-{{user `version`}}.box",
+        "output": "box/{{.Provider}}/linuxmint-19-mate-64bit-1.0.box",
         "type": "vagrant",
-        "vagrantfile_template": "{{ user `vagrantfile_template` }}"
+        "vagrantfile_template": "vagrantfile.tpl"
       }
     ]
   ],
   "provisioners": [
     {
-      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "scripts": [
         "script/rc_local.sh",
         "script/apt.sh",
@@ -57,7 +57,7 @@
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "expect_disconnect": true,
       "scripts": [
         "script/update.sh",
@@ -66,7 +66,7 @@
       "type": "shell"
     },
     {
-      "execute_command": "echo '{{ user `ssh_password` }}' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
       "pause_before": "120s",
       "scripts": [
         "script/vagrant.sh",
@@ -78,25 +78,6 @@
     }
   ],
   "variables": {
-    "headless": "false",
-    "hostname": "vagrant",
-    "ssh_fullname": "vagrant",
-    "ssh_password": "vagrant",
-    "ssh_username": "vagrant",
-
-    "_comment": "Build with `packer build linuxmint-19-mate-64bit.json`",
-    "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
-    "box_tag": "ltsp/linuxmint-19-mate-64bit",
-    "cpus": "1",
-    "disk_size": "20000",
-    "iso_checksum_type": "sha256",
-    "iso_checksum": "a5f9893d2960eaea1a4d35a86c1d2a627a2a8ee3e578f01514ab75c8ef323a8d",
-    "iso_url": "http://www.mirrorservice.org/sites/www.linuxmint.com/pub/linuxmint.com/stable/19/linuxmint-19-mate-64bit.iso",
-    "memory": "1024",
-    "preseed": "mint-19.seed",
-    "vagrantfile_template": "vagrantfile.tpl",
-    "version": "1.0",
-    "version_description": "Linux Mint 19.0 with VirtualBox Guest Additions 5.2.18",
-    "vm_name": "linuxmint-19-mate-64bit"
+    "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>"
   }
 }
