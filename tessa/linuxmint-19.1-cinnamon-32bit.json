@@ -1,0 +1,83 @@
+{
+  "builders": [{
+    "vm_name": "linuxmint-19.1-cinnamon-32bit",
+    "type": "virtualbox-iso",
+    "guest_os_type": "Ubuntu",
+    "http_directory": "http",
+    "iso_url": "http://mirror.netcologne.de/linuxmint/iso/stable/19.1/linuxmint-19.1-cinnamon-32bit.iso",
+    "iso_checksum": "b580052c4652ac8f1cbcd9057a0395642a722707d17e1a77844ff7fb4db36b70",
+    "iso_checksum_type": "sha256",
+    "ssh_password": "vagrant",
+    "ssh_username": "vagrant",
+    "ssh_wait_timeout": "10000s",
+    "headless": "false",
+    "boot_command": [
+      "{{ user `boot_command_prefix` }}",
+      "/casper/vmlinuz ",
+      "url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/mint-19.1.seed ",
+      "boot=casper ",
+      "initrd=/casper/initrd.lz ",
+      "debug-ubiquity ",
+      "automatic-ubiquity ",
+      "quiet ",
+      "splash ",
+      "noprompt ",
+      "-- <enter>"
+    ],
+    "shutdown_command": "echo 'vagrant' | sudo -S shutdown -P now",
+    "post_shutdown_delay": "1m",
+    "disk_size": "30000",
+    "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+    "virtualbox_version_file": ".vbox_version",
+    "hard_drive_interface": "sata",
+    "vboxmanage": [
+      [ "modifyvm", "{{.Name}}", "--memory", "1024" ],
+      [ "modifyvm", "{{.Name}}", "--cpus", "1" ]
+    ]
+  }],
+  "post-processors": [
+    [
+      {
+        "compression_level": "6",
+        "keep_input_artifact": false,
+        "output": "box/{{.Provider}}/linuxmint-19.1-cinnamon-32bit-1.0.box",
+        "type": "vagrant",
+        "vagrantfile_template": "vagrantfile.tpl"
+      }
+    ]
+  ],
+  "provisioners": [
+    {
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "script/rc_local.sh",
+        "script/apt.sh",
+        "script/sshd.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "expect_disconnect": true,
+      "scripts": [
+        "script/update.sh",
+        "script/reboot.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "pause_before": "120s",
+      "scripts": [
+        "script/vagrant.sh",
+        "script/virtualbox.sh",
+        "script/sudoers.sh",
+        "script/cleanup.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "boot_command_prefix": "<esc><wait><tab><wait><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>"
+  }
+}
