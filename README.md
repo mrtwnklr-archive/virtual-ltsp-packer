@@ -4,7 +4,7 @@ you can read more about it here - https://www.packer.io
 
 ## Installation
 ```
-PACKER_VERSION=1.2.5
+PACKER_VERSION=1.3.3
 wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
 unzip -d ~/bin packer_${PACKER_VERSION}_linux_amd64.zip
 ```
