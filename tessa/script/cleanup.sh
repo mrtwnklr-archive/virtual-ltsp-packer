@@ -27,7 +27,6 @@ apt-get -y purge ppp pppconfig pppoeconf popularity-contest
 
 # removing packages, libs, apt cache 
 dpkg -l | grep -- '-dev' | xargs apt-get purge -y
-apt-get -y autoremove --purge
 apt-get -y clean
 apt-get -y autoclean
 apt-get purge -y locate
