@@ -17,16 +17,12 @@ dpkg --list | awk '{ print $2 }' | grep 'linux-image-3.*-generic' | grep -v `una
 dpkg --list | awk '{ print $2 }' | grep linux-source | xargs apt-get -y purge
 
 # delete development packages
-dpkg --list | awk '{ print $2 }' | grep -- '-dev$' | xargs apt-get -y purge
-
-# delete compilers and other development tools
-apt-get -y purge cpp gcc g++
+#dpkg --list | awk '{ print $2 }' | grep -- '-dev$' | xargs apt-get -y purge
 
 # delete obsolete networking, oddities
 apt-get -y purge ppp pppconfig pppoeconf popularity-contest
 
 # removing packages, libs, apt cache 
-dpkg -l | grep -- '-dev' | xargs apt-get purge -y
 apt-get -y clean
 apt-get -y autoclean
 apt-get purge -y locate
